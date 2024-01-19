@@ -2,24 +2,23 @@
 
 require_relative '../../domain/repositories/balance_repository'
 require_relative '../mappers/balance_mapper'
-require_relative '../models/balance'
 
 module Infrastructure
   module Repositories
     class BalanceRepository < Domain::Repositories::BalanceRepository
       def find_by_account_id(account_id)
-        balance = Models::Balance
+        balance = Balance
                   .where(account_id: account_id)
                   .order(Sequel.desc(:created_at)).first
         to_entity(balance)
       end
     
       def find_by_id(id)
-        to_entity(Models::Balance[id])
+        to_entity(Balance[id])
       end
     
       def save(balance)
-        Models::Balance.create(to_dao(balance))
+        Balance.create(to_dao(balance))
       end
 
       private
