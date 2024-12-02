@@ -13,7 +13,6 @@ services:
     volumes:
       - .docker/mysql:/var/lib/mysql
 
-
   kafka:
     image: apache/kafka:latest
     container_name: kafka
