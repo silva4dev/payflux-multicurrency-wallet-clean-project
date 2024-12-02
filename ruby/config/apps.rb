@@ -7,6 +7,6 @@ end
 
 Padrino.mount(
   'Ruby::App',
-  :app_file => Padrino.root('app/infrastructure/controllers/app.rb'),
+  :app_file => Padrino.root('app/app.rb'),
   :app_class => 'Ruby::App'
 ).to('/')
