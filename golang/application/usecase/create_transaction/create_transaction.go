@@ -3,8 +3,8 @@ package create_transaction
 import (
 	"context"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/entity"
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/gateway"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/entity"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/gateway"
 
 	"github.com.br/silva4dev/wallet-digital-microservice-project/pkg/events"
 	"github.com.br/silva4dev/wallet-digital-microservice-project/pkg/uow"

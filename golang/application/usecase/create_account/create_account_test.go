@@ -3,8 +3,8 @@ package create_account
 import (
 	"testing"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/entity"
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/usecase/mocks"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/application/usecase/mocks"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/entity"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 )

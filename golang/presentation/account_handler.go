@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/usecase/create_account"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/application/usecase/create_account"
 )
 
 type WebAccountHandler struct {

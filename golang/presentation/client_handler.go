@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/usecase/create_client"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/application/usecase/create_client"
 )
 
 type WebClientHandler struct {

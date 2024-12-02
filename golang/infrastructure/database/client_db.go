@@ -3,7 +3,7 @@ package database
 import (
 	"database/sql"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/entity"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/entity"
 )
 
 type ClientDB struct {

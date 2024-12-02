@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"testing"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/entity"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/entity"
 	"github.com/stretchr/testify/suite"
 )
 

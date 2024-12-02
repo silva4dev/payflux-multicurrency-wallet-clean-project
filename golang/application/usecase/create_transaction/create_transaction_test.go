@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/entity"
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/event"
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/usecase/mocks"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/application/usecase/mocks"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/entity"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/event"
 	"github.com.br/silva4dev/wallet-digital-microservice-project/pkg/events"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"

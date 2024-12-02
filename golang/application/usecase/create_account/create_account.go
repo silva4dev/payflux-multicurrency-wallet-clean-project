@@ -1,8 +1,8 @@
 package create_account
 
 import (
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/entity"
-	"github.com.br/silva4dev/wallet-digital-microservice-project/internal/gateway"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/entity"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/domain/gateway"
 )
 
 type CreateAccountInputDTO struct {
