@@ -1,4 +1,8 @@
 # frozen_string_literal: true
 
-class Balance < Sequel::Model
+module Infrastructure
+  module Models
+    class Balance < Sequel::Model
+    end
+  end
 end
