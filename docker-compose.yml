@@ -1,15 +1,23 @@
 version: '3.8'
 
-services:      
+services:
+  goapp: 
+    build: ./golang
+    platform: linux/amd64
+    volumes:
+      - ./golang:/app
+    ports:
+      - 8080:8080
+
   mysql:
     image: mysql:5.7
     platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: wallet_development
+      MYSQL_DATABASE: wallet
       MYSQL_PASSWORD: root
     ports:
-      - "3306:3306"
+      - 3306:3306
     volumes:
       - .docker/mysql:/var/lib/mysql
 
@@ -49,3 +57,4 @@ services:
       CONTROL_CENTER_REPLICATION_FACTOR: 1
     depends_on:
       - kafka
+  
