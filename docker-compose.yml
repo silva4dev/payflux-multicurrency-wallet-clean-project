@@ -1,16 +1,18 @@
 version: '3.8'
 
 services:
-  goapp: 
-    build: ./golang
+  wallet-app:
+    build: ./wallet
+    container_name: wallet
     platform: linux/amd64
     volumes:
-      - ./golang:/app
+      - ./wallet:/app
     ports:
       - 8080:8080
 
-  mysql:
+  wallet-mysql:
     image: mysql:5.7
+    container_name: wallet-mysql
     platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -18,8 +20,17 @@ services:
       MYSQL_PASSWORD: root
     ports:
       - 3306:3306
-    volumes:
-      - .docker/mysql:/var/lib/mysql
+
+  balances-mysql:
+    image: mysql:5.7
+    container_name: balances-mysql
+    platform: linux/amd64
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: balances
+      MYSQL_PASSWORD: root
+    ports:
+      - 3307:3306
 
   kafka:
     image: apache/kafka:latest
