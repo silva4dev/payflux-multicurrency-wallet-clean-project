@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  rubyapp: 
+    build: .
+    platform: linux/amd64
+    volumes:
+      - .:/app
+    ports:
+      - 3000:3000
