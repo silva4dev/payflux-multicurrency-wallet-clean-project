@@ -1,15 +1,6 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  wallet-app:
-    build: ./wallet
-    container_name: wallet
-    platform: linux/amd64
-    volumes:
-      - ./wallet:/app
-    ports:
-      - 8080:8080
-
   wallet-mysql:
     image: mysql:5.7
     container_name: wallet-mysql
@@ -31,6 +22,28 @@ services:
       MYSQL_PASSWORD: root
     ports:
       - 3307:3306
+
+  wallet-app:
+    build: ./wallet
+    container_name: wallet
+    platform: linux/amd64
+    volumes:
+      - ./wallet:/app
+    ports:
+      - 8080:8080
+    depends_on:
+      - wallet-mysql
+
+  balances_app:
+    build: ./balances
+    container_name: balances
+    platform: linux/amd64
+    volumes:
+      - ./balances:/app
+    ports:
+      - 3000:3000
+    depends_on:
+      - balances-mysql
 
   kafka:
     image: apache/kafka:latest
@@ -68,4 +81,3 @@ services:
       CONTROL_CENTER_REPLICATION_FACTOR: 1
     depends_on:
       - kafka
-  
