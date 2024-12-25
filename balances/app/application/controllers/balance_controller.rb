@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-Ruby::App.controllers :balances, map: '/balances' do
+Ruby::App.controllers :balances, map: '/api/v1/balances' do
   get '/:account_id' do
     content_type :json
-    { message: 'Hello World!!!!!' }.to_json
+    { message: 'Hello World!' }.to_json
   end
 end
