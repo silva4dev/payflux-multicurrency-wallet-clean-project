@@ -14,8 +14,8 @@ import (
 	"github.com.br/silva4dev/wallet-digital-microservice-project/pkg/events"
 	"github.com.br/silva4dev/wallet-digital-microservice-project/pkg/kafka"
 	"github.com.br/silva4dev/wallet-digital-microservice-project/pkg/uow"
-	web "github.com.br/silva4dev/wallet-digital-microservice-project/presentation"
-	"github.com.br/silva4dev/wallet-digital-microservice-project/presentation/webserver"
+	web "github.com.br/silva4dev/wallet-digital-microservice-project/web"
+	"github.com.br/silva4dev/wallet-digital-microservice-project/web/webserver"
 	ckafka "github.com/confluentinc/confluent-kafka-go/kafka"
 	_ "github.com/go-sql-driver/mysql"
 )
