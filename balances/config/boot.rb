@@ -16,15 +16,12 @@ Padrino.dependency_paths.unshift Padrino.root('config/initializers/*.rb')
 Padrino.before_load do
   Padrino.dependency_paths << Padrino.root('app/domain/**/**/*.rb')
   Padrino.dependency_paths << Padrino.root('app/application/**/**/*.rb')
-  Padrino.dependency_paths << Padrino.root('app/presentation/**/**/*.rb')
-  Padrino.dependency_paths << Padrino.root('app/infrastructure/**/**/*.rb')
 end
 
 Padrino.after_load do
   Padrino.dependency_paths << Padrino.root('app/infrastructure/models/**/*.rb')
   Padrino.dependency_paths << Padrino.root('app/domain/**/**/*.rb')
   Padrino.dependency_paths << Padrino.root('app/application/**/**/*.rb')
-  Padrino.dependency_paths << Padrino.root('app/presentation/**/**/*.rb')
   Padrino.dependency_paths << Padrino.root('app/infrastructure/**/**/*.rb')
 end
 
