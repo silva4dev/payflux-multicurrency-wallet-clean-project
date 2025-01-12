@@ -34,7 +34,7 @@ services:
     depends_on:
       - wallet-mysql
 
-  balances_app:
+  balances-app:
     build: ./balances
     container_name: balances
     platform: linux/amd64
