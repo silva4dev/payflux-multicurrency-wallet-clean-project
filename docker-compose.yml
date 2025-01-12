@@ -38,6 +38,7 @@ services:
     build: ./balances
     container_name: balances
     platform: linux/amd64
+    env_file: ./balances/.env
     volumes:
       - ./balances:/app
     ports:
