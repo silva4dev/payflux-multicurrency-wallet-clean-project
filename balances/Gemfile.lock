@@ -9,6 +9,7 @@ GEM
     daemons (1.4.1)
     date (3.4.1)
     diff-lcs (1.5.1)
+    dotenv (3.1.7)
     eventmachine (1.2.7)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
@@ -139,6 +140,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  dotenv
   faker
   mysql2
   padrino
