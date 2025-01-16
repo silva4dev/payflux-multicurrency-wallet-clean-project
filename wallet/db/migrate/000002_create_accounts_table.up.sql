@@ -1,0 +1,7 @@
+CREATE TABLE accounts (
+    id VARCHAR(255) PRIMARY KEY,
+    client_id VARCHAR(255) NOT NULL,
+    balance DECIMAL(15,2) NOT NULL DEFAULT 0.00,
+    created_at TIMESTAMP NOT NULL,
+    FOREIGN KEY (client_id) REFERENCES clients(id) ON DELETE CASCADE
+);
