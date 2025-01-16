@@ -9,3 +9,4 @@ db/*.db
 .docker
 ./docker
 .vscode
+.env
