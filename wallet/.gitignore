@@ -1,3 +1,6 @@
+.DS_Store
+log/**/*
+tmp/**/*
 *.exe
 *.exe~
 *.dll
@@ -5,5 +8,7 @@
 *.dylib
 *.out
 go.work
+.docker
+./docker
 .vscode
 .env
