@@ -27,6 +27,7 @@ services:
     build: ./wallet
     container_name: wallet
     platform: linux/amd64
+    env_file: ./wallet/.env
     volumes:
       - ./wallet:/app
     ports:
