@@ -4,6 +4,8 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"log"
+	"os"
 
 	"github.com.br/silva4dev/wallet-digital-microservice-project/application/usecase/create_account"
 	"github.com.br/silva4dev/wallet-digital-microservice-project/application/usecase/create_client"
@@ -21,16 +23,37 @@ import (
 )
 
 func main() {
-	db, err := sql.Open("mysql", fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", "root", "root", "mysql", "3306", "wallet"))
-	if err != nil {
-		panic(err)
+	mysqlUser := os.Getenv("MYSQL_USER")
+	mysqlPassword := os.Getenv("MYSQL_PASSWORD")
+	mysqlHost := os.Getenv("MYSQL_HOST")
+	mysqlPort := os.Getenv("MYSQL_PORT")
+	mysqlDB := os.Getenv("MYSQL_DB")
+
+	if mysqlUser == "" || mysqlPassword == "" || mysqlHost == "" || mysqlPort == "" || mysqlDB == "" {
+		log.Fatal("Missing one or more required MySQL environment variables")
 	}
+
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", mysqlUser, mysqlPassword, mysqlHost, mysqlPort, mysqlDB)
+	db, err := sql.Open("mysql", dsn)
+
+	if err != nil {
+		log.Fatal("Failed to connect to database: ", err)
+	}
+
 	defer db.Close()
 
-	configMap := ckafka.ConfigMap{
-		"bootstrap.servers": "kafka:29092",
-		"group.id":          "wallet",
+	kafkaBootstrapServers := os.Getenv("KAFKA_BOOTSTRAP_SERVERS")
+	kafkaGroupID := os.Getenv("KAFKA_GROUP_ID")
+
+	if kafkaBootstrapServers == "" || kafkaGroupID == "" {
+		log.Fatal("Missing one or more required Kafka environment variables")
 	}
+
+	configMap := ckafka.ConfigMap{
+		"bootstrap.servers": kafkaBootstrapServers,
+		"group.id":          kafkaGroupID,
+	}
+
 	kafkaProducer := kafka.NewKafkaProducer(&configMap)
 
 	eventDispatcher := events.NewEventDispatcher()
