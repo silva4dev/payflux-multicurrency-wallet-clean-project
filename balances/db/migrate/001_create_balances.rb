@@ -3,7 +3,7 @@
 Sequel.migration do
   up do
     create_table :balances do
-      primary_key :id
+      String :id, primary_key: true
       String :account_id
       Float :balance
       DateTime :created_at
