@@ -9,6 +9,8 @@ GEM
     daemons (1.4.1)
     date (3.4.1)
     diff-lcs (1.5.1)
+    digest-crc (0.6.5)
+      rake (>= 12.0.0, < 14.0.0)
     dotenv (3.1.7)
     eventmachine (1.2.7)
     faker (3.5.1)
@@ -124,6 +126,8 @@ GEM
       unicode-display_width (>= 2.4.0, < 4.0)
     rubocop-ast (1.36.2)
       parser (>= 3.3.1.0)
+    ruby-kafka (1.5.0)
+      digest-crc
     ruby-progressbar (1.13.0)
     ruby2_keywords (0.0.5)
     sequel (5.87.0)
@@ -161,6 +165,7 @@ DEPENDENCIES
   rerun
   rspec
   rubocop
+  ruby-kafka
   sequel
   thin
 

@@ -11,6 +11,7 @@ gem 'rack'
 gem 'rack-protection'
 gem 'rack-session'
 gem 'rake'
+gem 'ruby-kafka'
 gem 'sequel'
 gem 'thin'
 
