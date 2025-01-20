@@ -11,7 +11,10 @@ module Application
       end
 
       def execute(input_dto)
-        @balance_repository.find_by_account_id(input_dto.account_id)
+        balance = @balance_repository.find_by_account_id(input_dto.account_id)
+        return nil if balance.nil?
+
+        balance
       end
     end
   end

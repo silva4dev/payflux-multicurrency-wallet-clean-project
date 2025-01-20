@@ -10,13 +10,10 @@ module Infrastructure
         balance = Balance
                   .where(account_id: account_id)
                   .order(Sequel.desc(:created_at)).first
+        return nil if balance.nil?
         to_entity(balance)
       end
-    
-      def find_by_id(id)
-        to_entity(Balance[id])
-      end
-    
+
       def save(balance)
         Balance.create(to_dao(balance))
       end

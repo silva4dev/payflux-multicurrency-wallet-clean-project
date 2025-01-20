@@ -11,12 +11,17 @@ Ruby::App.controllers :balances, map: '/balances' do
     repository = Infrastructure::Repositories::BalanceRepository.new
     usecase = Application::Usecases::FindAccountUsecase.new(repository)
     balance = usecase.execute(input_dto)
-    output_dto = Application::Dtos::FindAccountDto::OutputDTO.new(
-      id: balance.id,
-      account_id: balance.account_id, 
-      balance: balance.balance, 
-      created_at: balance.created_at
-    ).to_h
-    output_dto.to_json
+    if balance.nil?
+      status 404
+      { error: 'Balance not found' }.to_json
+    else
+      output_dto = Application::Dtos::FindAccountDto::OutputDTO.new(
+        id: balance.id,
+        account_id: balance.account_id, 
+        balance: balance.balance, 
+        created_at: balance.created_at
+      ).to_h
+      output_dto.to_json
+    end
   end
 end
