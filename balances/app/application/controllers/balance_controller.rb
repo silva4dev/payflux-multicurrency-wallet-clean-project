@@ -1,8 +1,22 @@
 # frozen_string_literal: true
 
+require_relative '../dtos/find_account_dto'
+require_relative '../usecases/find_account_usecase'
+require_relative '../../infrastructure/repositories/balance_repository'
+
 Ruby::App.controllers :balances, map: '/balances' do
   get '/:account_id' do
     content_type :json
-    { message: 'Hello World!' }.to_json
+    input_dto = Application::Dtos::FindAccountDto::InputDTO.new(account_id: params[:account_id])
+    repository = Infrastructure::Repositories::BalanceRepository.new
+    usecase = Application::Usecases::FindAccountUsecase.new(repository)
+    balance = usecase.execute(input_dto)
+    output_dto = Application::Dtos::FindAccountDto::OutputDTO.new(
+      id: balance.id,
+      account_id: balance.account_id, 
+      balance: balance.balance, 
+      created_at: balance.created_at
+    ).to_h
+    output_dto.to_json
   end
 end
