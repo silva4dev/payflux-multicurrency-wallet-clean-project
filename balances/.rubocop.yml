@@ -8,3 +8,9 @@ Style/Documentation:
 
 Layout/TrailingWhitespace:
   Enabled: false
+
+Style/SuperArguments:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
