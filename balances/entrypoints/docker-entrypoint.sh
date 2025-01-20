@@ -12,4 +12,4 @@ bundle exec padrino rake db:migrate
 
 bundle exec padrino rake db:seed
 
-bundle exec rerun --background -- thin start --port 3000 -R config.ru
+bundle exec rerun --background -- thin start --port 3003 -R config.ru
