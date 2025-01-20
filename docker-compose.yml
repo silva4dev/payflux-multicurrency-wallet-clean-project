@@ -43,7 +43,7 @@ services:
     volumes:
       - ./balances:/app
     ports:
-      - 3000:3000
+      - 3003:3003
     depends_on:
       - balances-mysql
 
