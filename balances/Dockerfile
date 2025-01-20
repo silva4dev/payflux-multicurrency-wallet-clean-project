@@ -17,6 +17,6 @@ WORKDIR /app/
 
 COPY . . 
 
-EXPOSE 3000
+EXPOSE 3003
 
 CMD ["sh", "-c", "chmod +x /app/entrypoints/docker-entrypoint.sh && /usr/bin/wait-for balances-mysql:3306 -t 40 -- /app/entrypoints/docker-entrypoint.sh"]

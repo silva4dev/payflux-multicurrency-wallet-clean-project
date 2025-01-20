@@ -14,10 +14,6 @@ module Domain
       def save(balance)
         raise NotImplementedError
       end
-    
-      def update(balance) 
-        raise NotImplementedError
-      end
     end
   end
 end

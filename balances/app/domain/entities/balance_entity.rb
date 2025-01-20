@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Domain
-  module Entity
-    class Balance
+  module Entities
+    class BalanceEntity
       attr_reader :id, :account_id, :balance, :created_at
 
       private_class_method :new

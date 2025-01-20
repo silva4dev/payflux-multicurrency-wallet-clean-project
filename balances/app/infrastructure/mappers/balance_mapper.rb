@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
+require_relative '../../domain/entities/balance_entity'
+
 module Infrastructure
   module Mappers
     class BalanceMapper 
       def self.to_entity(dao)
-        Domain::Entity::Balance.create(
+        Domain::Entities::BalanceEntity.create(
           dao[:account_id],
           dao[:balance],
           id: dao[:id],

@@ -1,10 +1,17 @@
 # frozen_string_literal: true
 
+require_relative '../../domain/repositories/balance_repository'
+require_relative '../mappers/balance_mapper'
+require_relative '../models/balance'
+
 module Infrastructure
   module Repositories
     class BalanceRepository < Domain::Repositories::BalanceRepository
       def find_by_account_id(account_id)
-        to_entity(Models::Balance.first(account_id: account_id))
+        balance = Models::Balance
+                  .where(account_id: account_id)
+                  .order(Sequel.desc(:created_at)).first
+        to_entity(balance)
       end
     
       def find_by_id(id)
@@ -12,15 +19,7 @@ module Infrastructure
       end
     
       def save(balance)
-        to_dao(balance).save
-      end
-
-      def update(balance)
-        found_balance = Models::Balance[balance.id]
-        return nil unless found_balance
-
-        found_balance.update(to_dao(balance))
-        to_entity(found_balance) 
+        Models::Balance.create(to_dao(balance))
       end
 
       private
