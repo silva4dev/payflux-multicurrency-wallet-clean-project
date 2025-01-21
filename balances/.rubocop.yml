@@ -14,3 +14,6 @@ Style/SuperArguments:
 
 Metrics/MethodLength:
   Enabled: false
+
+Layout/FirstArrayElementIndentation:
+  Enabled: false
